@@ -1,0 +1,28 @@
+<%- include('header') -%>
+
+<h1>MY TO-DO-LIST APP</h1>
+
+<div class="tasks">
+  <form action="/" method="POST">
+    <label>tasks of the day :</label>
+    <input type="text" autofocus name="task" />
+    <button type="submit">+</button>
+  </form>
+</div>
+
+<div class="tasks">
+  <p>
+    <%= new Date().toLocaleDateString('fr', {weekday: "long", day: 'numeric',
+    month: 'long'}) %>
+  </p>
+  <ul>
+    <% tasks.forEach(item => { %>
+    <li>
+      - <%= item %> <a href="/delete/<%= item %> "><button>✘</button></a>
+    </li>
+
+    <% }); %>
+  </ul>
+</div>
+
+<%- include('footer') -%>
