@@ -18,7 +18,8 @@
   <ul>
     <% tasks.forEach(item => { %>
     <li>
-      - <%= item %> <a href="/delete/<%= item %> "><button>✘</button></a>
+      - <%= item.name %>
+      <a href="/delete/<%= item.name %> "><button>✘</button></a>
     </li>
 
     <% }); %>
