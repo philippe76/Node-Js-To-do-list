@@ -20,12 +20,12 @@ const DB = process.env.DATABASE.replace(
 
 mongoose.connect(DB, {
   useNewUrlParser: true,
-  useUnifiedTopology: true,
+  useUnifiedTopology: true
 });
 
 // CREATING MODEL WITH MONGOOSE //
 const taskSchema = {
-  name: String,
+  name: String
 };
 
 const Task = mongoose.model("Task", taskSchema);
@@ -35,11 +35,12 @@ app.get("/", (req, res) => {
   Task.find((err, tasks) => {
     res.render("index", { tasks: tasks });
   });
+  // res.send("test test"
 });
 
 app.post("/", (req, res) => {
   const task = new Task({
-    name: req.body.task,
+    name: req.body.task
   });
   task.save();
   res.redirect("/");
@@ -52,4 +53,4 @@ app.get("/delete/:id", (req, res) => {
   });
 });
 
-app.listen(8080, () => console.log("server working on 8080"));
+app.listen(4000, () => console.log("server working on 4000"));
